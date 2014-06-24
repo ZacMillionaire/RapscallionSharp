@@ -18,6 +18,9 @@ namespace Rapscallion {
         static void Main(string[] args) {
            // Application.Run(new ClientLogin());
 
+            string maskedPath = "";
+            int passLen;
+
             Roulette.BuildAliasList();
 
             //Console.ReadKey();
@@ -26,7 +29,12 @@ namespace Rapscallion {
             user = Console.ReadLine();
             Console.Write("Password: ");
             pass = getPassword();
-            Console.WriteLine("\nAttempting login using " + user + " and password " + pass + "...");
+
+            // Simple covering of the password
+            passLen = pass.Length;
+            maskedPath = maskedPath.PadRight(passLen, '*');
+
+            Console.WriteLine("\nAttempting login using " + user + " and password " + maskedPath + "...");
 
             programRunning = true;
 
